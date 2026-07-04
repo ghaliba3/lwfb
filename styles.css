@@ -62,6 +62,7 @@ a { color: inherit; text-decoration: none; }
 .nav.scrolled { border-color: var(--line); box-shadow: var(--shadow-sm); background: rgba(255, 255, 255, .9); }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
 .brand { display: flex; align-items: center; gap: .7rem; }
+.brand-logo { height: 40px; width: auto; display: block; }
 .brand-mark {
   width: 40px; height: 40px; border-radius: 12px; background: var(--green);
   display: grid; place-items: center; flex: none; box-shadow: 0 6px 16px rgba(0, 106, 78, .3);
@@ -85,10 +86,15 @@ a { color: inherit; text-decoration: none; }
 .hero-bg {
   position: absolute; inset: 0; z-index: -2;
   background:
-    radial-gradient(1100px 600px at 82% -10%, rgba(194, 1, 1, .55), transparent 55%),
-    radial-gradient(900px 700px at 0% 120%, rgba(43, 194, 83, .35), transparent 55%),
-    linear-gradient(155deg, #0a3d13 0%, #129527 58%, #0f7d20 100%);
+    radial-gradient(1100px 600px at 82% -10%, rgba(194, 1, 1, .5), transparent 55%),
+    linear-gradient(120deg, rgba(10, 61, 19, .95) 0%, rgba(12, 106, 27, .82) 42%, rgba(18, 149, 39, .55) 100%);
 }
+.hero-photos { position: absolute; inset: 0; z-index: -3; }
+.hero-photos .hp {
+  position: absolute; inset: 0; background-size: cover; background-position: center;
+  opacity: 0; transition: opacity 1.6s ease;
+}
+.hero-photos .hp.active { opacity: 1; }
 .hero-bg::after {
   content: ""; position: absolute; inset: 0;
   background-image: radial-gradient(rgba(255, 255, 255, .09) 1px, transparent 1px);
@@ -150,8 +156,7 @@ a { color: inherit; text-decoration: none; }
   transition: transform .25s, box-shadow .25s;
 }
 .cause:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
-.cause-media { height: 150px; background: var(--img, var(--green)); display: grid; place-items: center; }
-.cause-media span { font-size: 3.4rem; filter: drop-shadow(0 4px 10px rgba(0, 0, 0, .25)); }
+.cause-media { height: 190px; background: var(--green); background-size: cover; background-position: center; }
 .cause-body { padding: 1.6rem; display: flex; flex-direction: column; gap: .8rem; flex: 1; }
 .cause-body h3 { font-size: 1.25rem; color: var(--red); }
 .cause-body p { font-size: .95rem; color: var(--muted); flex: 1; }

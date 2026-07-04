@@ -30,6 +30,17 @@
     }
   });
 
+  /* ---- Rotating hero photos ---- */
+  const hps = $$("#heroPhotos .hp");
+  if (hps.length > 1 && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    let hi = 0;
+    setInterval(() => {
+      hps[hi].classList.remove("active");
+      hi = (hi + 1) % hps.length;
+      hps[hi].classList.add("active");
+    }, 5000);
+  }
+
   /* ---- Team data (elected volunteer committee) ---- */
   const TEAM = {
     exec: [
